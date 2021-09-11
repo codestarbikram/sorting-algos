@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include<stdlib.h>
+
+void swap(int *a,int *b){
+    int temp;
+    temp=*a;
+    *a=*b;
+    *b=temp;
+    
+}
+int part(int a[],int low,int high){
+    int pivot=a[high];
+    int i=low-1;
+    for(int j=low;j<=high-1;j++){
+        if(a[j]<pivot){
+            i++;
+            swap(&a[j],&a[i]);
+        }
+    }
+    swap(&a[i+1],&a[high]);
+    return (i+1);
+}
+void quick(int a[],int low,int high){
+   
+   if(low<=high)
+   {
+        int pivot=part(a,low,high);
+    quick(a,low,pivot-1);
+    quick(a,pivot+1,high);
+   }
+    
+}
+int main() {
+    // Write C code here
+    int a[]={11,3,3,16,17,2,0};
+    int len=sizeof a / sizeof a[0];
+    quick(a,0,6);
+    printf("Hello world\n");
+    for(int i=0;i<=6;i++)
+    printf("%d\t",a[i]);
+    return 0;
+}
