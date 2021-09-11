@@ -1,0 +1,31 @@
+// https://www.programiz.com/c-programming/online-compiler/
+#include <stdio.h>
+#include<stdlib.h>
+void swap(int *a,int *b){
+    int temp;
+    temp=*a;
+    *a=*b;
+    *b=temp;
+    
+}
+
+void bubble(int a[],int len){
+   
+   for(int i=0;i<len;i++){
+       for(int j=0;j<=len-i;j++){
+           if(a[j]>a[j+1])
+           swap(&a[j],&a[j+1]);
+       }
+   }
+    
+}
+int main() {
+    // Write C code here
+    int a[]={11,3,3,16,201,0,64,0,2,17};
+    int len= sizeof a / sizeof a[0];
+    bubble(a,len-1);
+    printf("Hello world\n");
+    for(int i=0;i<len;i++)
+    printf("%d\t",a[i]);
+    return 0;
+}
