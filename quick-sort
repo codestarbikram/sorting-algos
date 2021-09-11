@@ -34,9 +34,9 @@ int main() {
     // Write C code here
     int a[]={11,3,3,16,17,2,0};
     int len=sizeof a / sizeof a[0];
-    quick(a,0,6);
+    quick(a,0,len-1);
     printf("Hello world\n");
-    for(int i=0;i<=6;i++)
+    for(int i=0;i<=len-1;i++)
     printf("%d\t",a[i]);
     return 0;
 }
